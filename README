@@ -1,0 +1,21 @@
+#sarcasm
+(www.hashsarcasm.appspot.com)
+    -- Sarcasm Detector
+
+Sarcasm is a form of speech act in which the speakers convey their message in an implicit way. 
+The inherently ambiguous nature of sarcasm sometimes makes it hard even for humans to decide 
+whether an utterance is sarcastic or not. 
+Recognition of sarcasm can benefit many sentiment analysis Natural Language Processing (NLP) applications,
+such as review summarization, customer care systems, dialogue systems and review ranking systems.
+
+The aim of this project was, therefore, to study and explore the techniques that can be used to detect sarcasm 
+in one of the most-influential communication platforms - twitter.
+
+Two approaches were tried to detect sarcasm in tweets:
+1. Mining patterns from tweets and extracting features of sarcastic tweets and non-sarcastic tweets and training a classifier.
+2. Rule-based detection of obvious and most-probable patterns in sarcastic tweets.
+
+The resulting solution was encased in a web application and deployed for community use.
+
+You can contact me by mail: karthikprasad@engineer.com.
+You can also connect with me on Linkedin: www.linkedin.com/in/prasadkarthik
