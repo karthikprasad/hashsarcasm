@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>About-#sarcasm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About #sarcasm - is this tweet sarcastic??">
+  <meta name="author" content="karthik(karthikprasad@engineer.com)">
+
+  <!-- Le styles -->
+  <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+  }
+  </style>
+  <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+
+  <style type="text/css">
+    @media (min-width: 768px) { 
+      .side-fix{
+        position: fixed;
+      }
+
+    }
+
+  li{
+    font-size: 17px;
+  }
+
+  li.ph1{
+    font-size:17.5px;
+    line-height: 30px;
+  }
+
+
+    .lead{
+      font-size: 17.5px;
+    }
+    div.hero-unit p.lead{
+      font-style: italic;
+      margin-bottom: 4px;
+      font-size: 14px;
+      font-weight: 200;
+      line-height: 25px;
+    }
+
+    div.hero-unit{
+      padding:20px;
+      padding-left: 80px;
+    }
+  </style>
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Fav and touch icons -->
+      <link rel="shortcut icon" href="../static/img/hashsarcasm.ico">
+    </head>
+
+    <body>
+
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/" style="font-family:fantasy;">#sarcasm</a>
+            <div class="nav-collapse collapse nav"> 
+              <ul class="nav">
+                <li style="padding-top:12px; padding-bottom:10px">is this tweet sarcastic?</li> 
+              </ul>
+            </div>
+            <div class="nav-collapse collapse">
+              <ul class="nav pull-right">
+                <li id="home"><a href="/">Check</a></li>
+                <li id="about" class="active"><a href="/about">About</a></li> 
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="content" class="container">
+        <div class="row">
+
+          <div class="span3 side-fix" style="text-align:center">
+            <img style="height:158px" src="../static/img/wordle.png" />
+          </div>
+
+
+          <div class="span9 pull-right">
+              <h2 style="font-family:fantasy">#sarcasm</h2>
+              <h4>&nbsp;&nbsp;&nbsp;&nbsp;helping you findout if a tweet is sarcastic</h4>
+              <br />
+
+              <div class="hero-unit">
+                <p id="aboutbigbang" class="lead">
+                  <a href="http://wiki.the-big-bang-theory.com/wiki/Sheldon">Dr.Sheldon Cooper</a>, despite his IQ of 187, cannot get sarcasm! What a shame!<br />
+                  His friend and roommate, <a href="http://wiki.the-big-bang-theory.com/wiki/Leonard">Dr. Leonard Hofstadter</a>, had to hold up a <a href="http://wiki.the-big-bang-theory.com/wiki/Sarcasm_sign">"Sarcasm sign"</a> every time Sheldon was confused; quite literally!
+                </p>
+                <p id="problem" class="lead">
+                  But with the advent of <a href="www.twitter.com">twitter</a>, the number of sarcastic tweets on Sheldon's timeline (from his "fans") increased...making poor Leanord's life miserable! Well, he obviously didn't like being woken up at 3 AM in the morning by Sheldon, just to tell him if a tweet was sarcastic :-/. But all hail the <a href="http://wiki.the-big-bang-theory.com/wiki/Roommate_Agreement">"Roommate Agreement</a>, he had no choice! :-(
+                </p>
+
+                <p id="how" class="lead">
+                  Or did he? Leonard asked <a href="#friends">us - his friends -</a> to help him out. So we thought of developing a web application which finds out if a tweet is sarcastic or not!
+                </p>
+            </div>
+
+            <h3 style="font-size:20px">Phase 1</h3>
+            <div id="phase1" class="lead">
+                <ul>
+                  <li class="ph1">
+                    We collected a lot of tweets from twitter using the <a href="https://dev.twitter.com/">twitter api</a> and built a dataset of sarcastic and non sarcastic tweets.
+                  </li>
+                  <li class="ph1">
+                    The data set was polished by replacing unnecessary and irrelevant text (hashtags, links, usernames) with placeholders.
+                  </li>
+                  <li class="ph1">
+                    We then mined for frequently occuring patterns in the dataset and extracted salient features from each of the tweets.
+                  </li>
+                </ul>
+                <p style="text-align:center;">
+                  <span class="label label-success" style="font-size:17px">All in all, we built a corpus of common patterns and feature vectors for every tweet.</span>
+                </p>
+                So given any tweet, we now extract its features and find the k-nearest neighbours from the trained feature vector corpus. Its sarcasm level is found based on its neighbours.
+            </div>
+
+            <hr />
+
+            <h3 style="font-size:20px">Phase 2</h3>
+            <div id="phase2" class="lead">
+              Further, we manually looked at all the tweets and listed the features of sarcastic tweets.<br />
+              The features ranged from usage of specific hashtags to emoticons to some common phrases. Capitalization of text also showed itself as a prominent feature...<br />
+              Depending on the presence of these faetures in the tweet, we determine its sarcasm level.
+            </div>
+
+            <hr />
+            <div id="conclusion" class="lead" style="text-align:center">
+              <span class="label label-important" style="font-size:17px">The final sarcasm level is determined by the combination of the above two phases.</span>
+            </div>
+
+            <div class="hero-unit">
+                <p id="bigbangconclusion" class="lead">
+                  Though very preliminary, we hope this will help Leonard keep Sheldon at bay!<br/>
+                  Atleast until we roll out the next improved version... :-)
+                </p>
+            </div>
+
+            <hr />
+
+            <h3 style="font-size:22px">Friends of Leonard</h3>
+            <p id="friends" class="lead">
+              <span class="span3 pull-left" style="text-align:center;">
+                <a href="http://in.linkedin.com/pub/aparna-nagarajan/4a/3b8/303" style>Aparna</a>
+              </span>
+
+              <span class="span3" style="text-align:center; ">
+                <a href="http://www.linkedin.com/in/prasadkarthik">Karthik</a>
+              </span>
+              <span class="span3 pull-right" style="text-align:center; margin:0;">
+                <a href="http://www.linkedin.com/in/apoorvaraob">Apoorva</a>
+              </span>
+
+              <br />
+
+              <div id="guide" class="span9" style="text-align:center; margin:0">
+                <p class="span3 offset3"style="font-size:17.5px;">
+                  <a href="http://www.linkedin.com/in/kavimahesh">Dr. Kavi Mahesh</a>
+                </p>
+              </div>
+                
+            </p>
+            
+          </div><!-- /span9 -->
+        </div><!-- /row -->
+
+
+
+
+        <div class="span12">
+          <hr>
+          <footer style="text-align:center">
+            <p>This application has been built for academic purpose and is not intended for commercial use.</p>
+          </footer>
+        </div>
+
+      </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery-182.js"></script>
+    <script src="../static/js/bootstrap-transition.js"></script>
+    <script src="../static/js/bootstrap-alert.js"></script>
+    <script src="../static/js/bootstrap-modal.js"></script>
+    <script src="../static/js/bootstrap-dropdown.js"></script>
+    <script src="../static/js/bootstrap-scrollspy.js"></script>
+    <script src="../static/js/bootstrap-tab.js"></script>
+    <script src="../static/js/bootstrap-tooltip.js"></script>
+    <script src="../static/js/bootstrap-popover.js"></script>
+    <script src="../static/js/bootstrap-button.js"></script>
+    <script src="../static/js/bootstrap-collapse.js"></script>
+    <script src="../static/js/bootstrap-carousel.js"></script>
+    <script src="../static/js/bootstrap-typeahead.js"></script>
+
+
+  </body>
+  </html>

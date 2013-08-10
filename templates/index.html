@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>#sarcasm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sarcasm Detection in tweets">
+  <meta name="author" content="karthik(karthikprasad@engineer.com)">
+
+  <!-- Le styles -->
+  <link href="../static/css/bootstrap.css" rel="stylesheet">
+  <style type="text/css">
+  body {
+    padding-top: 60px;
+    padding-bottom: 40px;
+    /*background-image: -webkit-radial-gradient(center, ellipse farthest-corner, #FFFFFF 0%, #D3EFBA 100%);*/
+  }
+  
+  p#waitmsg{
+	  display:none;
+	  color: #826FAA;
+	  font-size: 18px;
+    font-family: cursive;
+	  text-align:center;
+    margin:80px 0 10px 0;
+  }
+
+  div#output{
+    text-align: center;
+    font-family: cursive;
+    font-size: 38px;
+    margin:80px 0 10px 0;
+  }
+
+  li{
+    font-size: 17px;
+  }
+
+  @media (max-width: 768px){
+    #col1, #col3{
+      display:none;
+    }
+  }
+
+
+  </style>
+  <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Fav and touch icons -->
+      <link rel="shortcut icon" href="../sataic/img/hashsarcasm.ico">
+</head>
+
+<body>
+
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="/" style="font-family:fantasy;">#sarcasm</a>
+            <div class="nav-collapse collapse nav"> 
+              <ul class="nav">
+                <li style="padding-top:12px; padding-bottom:10px">is this tweet sarcastic?</li> 
+              </ul>
+            </div>
+            <div class="nav-collapse collapse">
+              <ul class="nav pull-right">
+                <li id="home" class="active"><a href="/">Check</a></li>
+                <li id="about"><a href="/about">About</a></li> 
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </div>
+      </div>
+
+
+
+      <div id="content" class="container">
+
+        <div class="row">
+          <div id="col1"class="span3" style="float:left">
+              <img src="../static/img/leonardff.png" style="height:device-height; width:100%" />
+          </div>
+
+          <div id="col2" class=" row span6">
+            <h1 style="font-family:fantasy; text-align:center">#sarcasm</h1>
+            <br />
+			      <div>
+				      <form class="form-search" style="text-align:center;" action="/check" onsubmit="check(); return false;">
+				        <textarea style="width:100%"rows="5" id="tweet" class="input-xxlarge" placeholder="Enter the confusing tweet here..."></textarea>
+				        <br /><br />
+				        <button type="submit" class="btn btn-primary btn-large">Leonard, is that Sarcasm?</button>
+				      </form>
+            </div>
+            
+            <p id="waitmsg">Hang on! Lemme check that...</p>
+            
+            <div id="output"></div>
+
+          </div><!-- /col2 -->
+
+          <div id="col3" class="span3">
+              <img src="../static/img/sheldonff.png" style="height:device-height; width:100%" />
+          </div>
+      </div>
+
+        <hr>
+
+        <footer style="text-align:center">
+          
+          <p>This application has been built for academic purpose and is not intended for commercial use.</p>
+        </footer>
+
+      </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../static/js/jquery-182.js"></script>
+    <script src="../static/js/bootstrap-transition.js"></script>
+    <script src="../static/js/bootstrap-alert.js"></script>
+    <script src="../static/js/bootstrap-modal.js"></script>
+    <script src="../static/js/bootstrap-dropdown.js"></script>
+    <script src="../static/js/bootstrap-scrollspy.js"></script>
+    <script src="../static/js/bootstrap-tab.js"></script>
+    <script src="../static/js/bootstrap-tooltip.js"></script>
+    <script src="../static/js/bootstrap-popover.js"></script>
+    <script src="../static/js/bootstrap-button.js"></script>
+    <script src="../static/js/bootstrap-collapse.js"></script>
+    <script src="../static/js/bootstrap-carousel.js"></script>
+    <script src="../static/js/bootstrap-typeahead.js"></script>
+
+
+
+    <!-- Le scripts for ajax -->
+    <script type="text/javascript">
+    check = function(){
+        $("div#output").html("");
+        $("p#waitmsg").css("display","block");
+
+        $.post("/check", 
+          {"t": encodeURIComponent($("#tweet").val())},
+
+          function(htmlResponse){
+            $("p#waitmsg").css("display","none");
+            $("div#output").html(htmlResponse);
+          }
+
+          );
+      }
+    </script>
+
+</body>
+</html>
